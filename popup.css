@@ -1,0 +1,396 @@
+/* Hallmark · component: settings-popup · genre: modern-minimal · theme: Cobalt (dual-scheme)
+ * states: default · hover · focus · active · disabled · loading · error · success
+ * contrast: pass (46–50)
+ * Hallmark · pre-emit critique: P5 H4 E4 S4 R5 V4
+ *
+ * Token contract: every colour/font below references these variables.
+ * The system font stack is deliberate — an extension popup is browser
+ * chrome, MV3 CSP forbids remote fonts, and the native stack renders
+ * instantly with no FOUT.
+ */
+
+:root {
+  color-scheme: light dark;
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+
+  --radius: 6px;
+  --dur: 120ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --color-paper: oklch(98.5% 0.002 260);
+  --color-surface: oklch(95% 0.005 260);
+  --color-ink: oklch(27% 0.02 260);
+  --color-muted: oklch(46% 0.015 260);
+  --color-rule: oklch(88.5% 0.006 260);
+  --color-track: oklch(83% 0.008 260);
+  --color-thumb: oklch(99% 0 0);
+  --color-accent: oklch(54% 0.16 258);
+  --color-accent-ink: oklch(99% 0 0);
+  --color-focus: var(--color-accent);
+  --color-error: oklch(55% 0.19 25);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: oklch(23% 0.015 260);
+    --color-surface: oklch(28.5% 0.015 260);
+    --color-ink: oklch(90% 0.01 260);
+    --color-muted: oklch(70% 0.01 260);
+    --color-rule: oklch(37% 0.015 260);
+    --color-track: oklch(43% 0.015 260);
+    --color-thumb: oklch(92% 0.005 260);
+    --color-accent: oklch(80% 0.11 250);
+    --color-accent-ink: oklch(22% 0.02 260);
+    --color-error: oklch(72% 0.14 25);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 268px;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+/* --- header ---------------------------------------------------------- */
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.brand svg {
+  flex: none;
+  color: var(--color-accent);
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-style: normal;
+}
+
+#status {
+  margin: 1px 0 0;
+  min-height: 1lh; /* stable height — status swaps never shift layout */
+  font-size: 11.5px;
+  color: var(--color-muted);
+  transition: color var(--dur) var(--ease-out);
+}
+
+#status.is-ok {
+  color: var(--color-accent);
+}
+
+#status.is-error {
+  color: var(--color-error);
+}
+
+/* --- switch ------------------------------------------------------------ */
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  width: 36px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.switch.small {
+  width: 30px;
+  height: 18px;
+}
+
+.switch input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.switch .track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-track);
+  transition: background-color var(--dur) var(--ease-out);
+  pointer-events: none;
+}
+
+.switch .track::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-thumb);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.switch.small .track::before {
+  width: 12px;
+  height: 12px;
+}
+
+.switch input:checked + .track {
+  background: var(--color-accent);
+}
+
+.switch input:checked + .track::before {
+  transform: translateX(16px);
+}
+
+.switch.small input:checked + .track::before {
+  transform: translateX(12px);
+}
+
+.switch input:focus-visible + .track,
+.switch.is-focus .track {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* --- sections ----------------------------------------------------------- */
+
+.group {
+  margin-top: var(--space-4);
+}
+
+.group-label {
+  margin: 0 0 var(--space-2);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-muted);
+  font-style: normal;
+}
+
+/* Sliders */
+
+.slider-row + .slider-row {
+  margin-top: 10px;
+}
+
+.slider-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: 2px;
+}
+
+.slider-head label {
+  font-size: 12.5px;
+}
+
+.slider-head output {
+  font-size: 12px;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-track);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  margin-top: -5px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-accent);
+  transition: transform 100ms var(--ease-out);
+}
+
+@media (hover: hover) {
+  input[type="range"]:hover::-webkit-slider-thumb {
+    transform: scale(1.1);
+  }
+}
+
+input[type="range"]:focus-visible {
+  outline: none; /* the ring moves to the thumb */
+}
+
+input[type="range"]:focus-visible::-webkit-slider-thumb,
+input[type="range"].is-focus::-webkit-slider-thumb {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+input[type="range"]:active::-webkit-slider-thumb,
+input[type="range"].is-active::-webkit-slider-thumb {
+  transform: scale(1.15);
+  cursor: grabbing;
+}
+
+/* Feature rows */
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 calc(-1 * var(--space-2));
+  padding: 7px var(--space-2);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease-out);
+}
+
+.feature + .feature {
+  margin-top: 2px;
+}
+
+@media (hover: hover) {
+  .feature:hover {
+    background: var(--color-surface);
+  }
+}
+
+.feature.is-hover {
+  background: var(--color-surface);
+}
+
+.feature svg {
+  flex: none;
+  color: var(--color-muted);
+}
+
+.feature .row-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+/* --- footer ------------------------------------------------------------- */
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-rule);
+}
+
+.kofi {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--color-muted);
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--dur) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .kofi:hover {
+    color: var(--color-accent);
+  }
+}
+
+.kofi.is-hover {
+  color: var(--color-accent);
+}
+
+.kofi svg {
+  flex: none;
+}
+
+.version {
+  font-size: 11px;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- global states -------------------------------------------------------- */
+
+body.is-loading main,
+body.is-loading footer {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+body.is-off .group,
+body.is-off footer {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+body.is-off footer {
+  /* the Ko-fi link stays readable but clearly inactive */
+  opacity: 0.8;
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

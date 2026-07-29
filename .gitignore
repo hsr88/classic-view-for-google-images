@@ -1,0 +1,11 @@
+dist/
+*.zip
+.tmp-*
+.DS_Store
+Thumbs.db
+
+# Local design and generation files
+scratch/
+popup.preview.html
+design.md
+ChatGPT Image *.png

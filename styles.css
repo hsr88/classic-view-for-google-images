@@ -1,0 +1,238 @@
+/* Classic Rows for Google Images — layout + on-page UI.
+   Everything is gated on the `ogi-on` class on <html>, so plain web
+   search (the "All" tab) is never touched. */
+
+:root {
+  --ogi-h: 180px; /* target row height, like the classic layout */
+  --ogi-gap: 6px;
+  /* The zoom overlay must sit above Google's own layers; content-script
+     UI has no z-index budget of the host page, hence a deliberate top value. */
+  --ogi-z-overlay: 2147483000;
+}
+
+/* Grid container: masonry off, justified flex rows on. */
+html.ogi-on .ogi-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+  gap: var(--ogi-gap, 6px) !important;
+  column-count: unset !important;
+  columns: unset !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* If Google keeps results inside column wrapper divs, flatten them so
+   the tiles become direct flex items. */
+html.ogi-on .ogi-grid.ogi-flatten > * {
+  display: contents !important;
+}
+
+/* Single tile: width proportional to the image's aspect ratio.
+   The flex-grow ≈ aspect-ratio trick yields near-perfect justification
+   without pixel math in JS. */
+html.ogi-on .ogi-item {
+  flex: calc(var(--ar, 1) * 100) 1 calc(var(--ar, 1) * var(--ogi-h)) !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: var(--ogi-h) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-radius: 8px;
+  box-sizing: border-box !important;
+}
+
+/* The spacer eats free space in the last, incomplete row so the final
+   thumbnails don't stretch across the full width. */
+html.ogi-on .ogi-grid::after {
+  content: "";
+  display: block;
+  flex: 100000 1 auto;
+  height: 0;
+}
+
+/* First level of tile children (link / wrapper) at full height —
+   except our own UI (the View image button sizes to its content). */
+html.ogi-on .ogi-item > *:not(.ogi-viewbtn) {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* The thumbnail fills the tile; slight side cropping (cover) is the
+   price of aligned rows — exactly what the classic layout did.
+   Height in px (not %), so it doesn't depend on Google's wrappers. */
+html.ogi-on .ogi-thumb {
+  width: 100% !important;
+  height: var(--ogi-h) !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* --- "View image" hover button ---------------------------------------- */
+
+html.ogi-on .ogi-viewbtn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 5;
+  display: none;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(32, 33, 36, 0.88);
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Hover shows it; focus-within keeps it keyboard-reachable. */
+html.ogi-on .ogi-item:hover .ogi-viewbtn,
+html.ogi-on .ogi-item:focus-within .ogi-viewbtn {
+  display: block;
+}
+
+html.ogi-on .ogi-viewbtn:hover {
+  background: rgba(32, 33, 36, 1);
+}
+
+html.ogi-on .ogi-viewbtn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 1px;
+}
+
+/* Hide related searches elements when active */
+html.ogi-on.ogi-hide-related .ogi-related-hidden,
+html.ogi-on.ogi-hide-related [data-rel] {
+  display: none !important;
+}
+
+/* --- size filter chips ---------------------------------------------------- */
+
+.ogi-filters {
+  display: none;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 16px;
+  font-family: Google Sans, Roboto, system-ui, -apple-system, sans-serif;
+}
+
+html.ogi-on .ogi-filters {
+  display: flex;
+}
+
+.ogi-filters button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #e8eaed;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.ogi-filters button:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.ogi-filters button.ogi-active {
+  background: #8ab4f8;
+  color: #202124;
+  border-color: #8ab4f8;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(138, 180, 248, 0.4);
+}
+
+.ogi-filters button.ogi-active:hover {
+  background: #aecbfa;
+  border-color: #aecbfa;
+  transform: translateY(-1px);
+}
+
+/* Light mode support for Google Images */
+@media (prefers-color-scheme: light) {
+  .ogi-filters button {
+    border-color: rgba(60, 64, 67, 0.2);
+    background: rgba(241, 243, 244, 0.9);
+    color: #3c4043;
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.1);
+  }
+  .ogi-filters button:hover {
+    background: rgba(232, 240, 254, 0.8);
+    border-color: #1a73e8;
+    color: #1a73e8;
+  }
+  .ogi-filters button.ogi-active {
+    background: #1a73e8;
+    color: #ffffff;
+    border-color: #1a73e8;
+    box-shadow: 0 2px 6px rgba(26, 115, 232, 0.3);
+  }
+  .ogi-filters button.ogi-active:hover {
+    background: #1557b0;
+    border-color: #1557b0;
+  }
+}
+
+.ogi-filters button:focus-visible {
+  outline: 2px solid #8ab4f8;
+  outline-offset: 2px;
+}
+
+/* --- hover zoom overlay ----------------------------------------------------- */
+
+#ogi-zoom {
+  position: fixed;
+  z-index: var(--ogi-z-overlay);
+  display: none;
+  pointer-events: none; /* clicks fall through to the page */
+  border-radius: 8px;
+  overflow: hidden;
+  background: #202124;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  outline: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+#ogi-zoom.ogi-visible {
+  display: block;
+}
+
+#ogi-zoom img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(560px, 45vw);
+  max-height: 70vh;
+}
