@@ -45,6 +45,8 @@ It is free, small, and does not collect browsing data.
 - Hides related-search blocks and carousels
 - Applies changes immediately without reloading the page
 - Syncs preferences through `chrome.storage.sync`
+- Supports Google country domains across Europe, the Americas, Asia, and Oceania
+- Opens a prefilled GitHub issue when a layout breaks
 
 <p align="center">
   <img src="extension-popup.png" width="259" alt="Classic View settings popup">
@@ -95,13 +97,17 @@ The repository also contains the static website published at [images.hsr.gg](htt
 
 Classic View does not collect, store, or transmit searches, browsing history, IP addresses, or personal information.
 
-The `storage` permission saves extension preferences in Chrome. Chrome may sync those preferences with the user's own browser profile. The extension has no analytics, advertising SDKs, external scripts, or remote code.
+The `storage` permission saves extension preferences in Chrome. Chrome may sync those preferences with the user's own browser profile.
+
+The `activeTab` permission lets the report button include the current Google domain in a GitHub issue. It does not include the full URL, search query, or page content.
+
+The extension has no analytics, advertising SDKs, external scripts, or remote code.
 
 Read the full [privacy policy](PRIVACY_POLICY.md).
 
 ## Found a broken layout?
 
-Google changes its interface often and sometimes rolls out different versions to different accounts or countries.
+Google changes its interface often and sometimes rolls out different versions to different accounts or countries. Use the small "Report issue" button in the popup to open a prefilled GitHub issue.
 
 [Open an issue](https://github.com/hsr88/classic-view-for-google-images/issues/new) and include:
 

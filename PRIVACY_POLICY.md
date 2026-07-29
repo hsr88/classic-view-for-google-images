@@ -1,6 +1,6 @@
 # Privacy Policy for Classic View for Google Images™
 
-Last updated: July 25, 2026
+Last updated: July 29, 2026
 
 ## 1. Overview
 Classic View for Google Images™ ("the Extension") is committed to protecting user privacy. This Privacy Policy explains how user information is handled by the Extension.
@@ -14,7 +14,8 @@ The Extension does not use any third-party analytics, tracking tools, advertisem
 
 ## 4. Permissions Usage
 - `storage`: Required strictly for saving UI preferences locally.
-- Host permissions (`*://www.google.com/search*`, `*://www.google.pl/search*`): Required exclusively to insert CSS and JavaScript styling to reorganize search results visually on Google Images pages.
+- `activeTab`: Used only after the user opens the extension popup. It allows the "Report issue" button to include the current Google domain in a GitHub issue. The Extension does not include the full page URL, search query, or page content.
+- Host permissions for supported Google country domains: Required exclusively to insert CSS and JavaScript styling that reorganizes results visually on Google Images pages. The complete list of supported domains is defined in `manifest.json`.
 
 ## 5. Contact
 If you have any questions or concerns regarding this Privacy Policy, please contact the developer via the official Chrome Web Store extension support page.

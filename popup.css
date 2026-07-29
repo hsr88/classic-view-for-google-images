@@ -336,28 +336,41 @@ footer {
   border-top: 1px solid var(--color-rule);
 }
 
-.kofi {
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.footer-action {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--color-muted);
+  font: inherit;
   font-size: 12px;
   text-decoration: none;
   white-space: nowrap;
   transition: color var(--dur) var(--ease-out);
+  cursor: pointer;
 }
 
 @media (hover: hover) {
-  .kofi:hover {
+  .footer-action:hover {
     color: var(--color-accent);
   }
 }
 
-.kofi.is-hover {
+.footer-action.is-hover {
   color: var(--color-accent);
 }
 
-.kofi svg {
+.footer-action svg {
   flex: none;
 }
 
