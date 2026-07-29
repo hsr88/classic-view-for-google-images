@@ -91,8 +91,6 @@ popup.js          Settings storage and live updates
 popup.css         Popup styles
 ```
 
-The repository also contains the static website published at [images.hsr.gg](https://images.hsr.gg/).
-
 ## Privacy
 
 Classic View does not collect, store, or transmit searches, browsing history, IP addresses, or personal information.
@@ -122,12 +120,6 @@ Do not include private searches or personal account information.
 ## Development
 
 No build step is required for the extension. Load the repository as an unpacked extension, edit the source files, then refresh it from `chrome://extensions`.
-
-The landing page has a separate build command:
-
-```bash
-node build-site.mjs
-```
 
 ## Support the project
 
