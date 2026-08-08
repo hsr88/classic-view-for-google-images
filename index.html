@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071426">
+    <meta name="description" content="Free Chrome extension that restores the old Google Images layout: classic horizontal rows, hover zoom, View Image button, size filters. No tracking.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <title>Old Google Images Layout – Chrome Extension | Classic View</title>
+    <link rel="canonical" href="https://images.hsr.gg/">
+    <link rel="icon" href="./icon48.png">
+    <link rel="preload" as="image" href="./hero-classic-layout.png" fetchpriority="high">
+    <link rel="stylesheet" href="./premium.css">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Classic View for Google Images">
+    <meta property="og:title" content="Old Google Images Layout – Free Chrome Extension">
+    <meta property="og:description" content="Restore the old Google Images layout with classic horizontal rows, hover zoom, View Image, and less clutter. Free Chrome extension.">
+    <meta property="og:url" content="https://images.hsr.gg/">
+    <meta property="og:image" content="https://images.hsr.gg/hero-classic-layout.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="800">
+    <meta property="og:image:alt" content="Old Google Images layout restored with classic horizontal image rows">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Old Google Images Layout – Free Chrome Extension">
+    <meta name="twitter:description" content="Restore the old Google Images layout with classic horizontal rows, hover zoom, View Image, and less clutter.">
+    <meta name="twitter:image" content="https://images.hsr.gg/hero-classic-layout.png">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "Classic View for Google Images",
+            "alternateName": ["Classic View", "Old Google Images layout extension"],
+            "description": "A free Chrome extension that restores the old Google Images layout with classic justified horizontal rows, hover zoom, a direct View Image button, size filters, and clutter controls.",
+            "url": "https://images.hsr.gg/",
+            "downloadUrl": "https://chromewebstore.google.com/detail/classic-view-for-google-i/ncljfdlnfncafnmcfbdkobjdpfiodfcg",
+            "installUrl": "https://chromewebstore.google.com/detail/classic-view-for-google-i/ncljfdlnfncafnmcfbdkobjdpfiodfcg",
+            "image": "https://images.hsr.gg/hero-classic-layout.png",
+            "screenshot": [
+              "https://images.hsr.gg/hero-classic-layout.png",
+              "https://images.hsr.gg/hero-hover-zoom.png",
+              "https://images.hsr.gg/hero-layout-controls.png"
+            ],
+            "applicationCategory": "BrowserApplication",
+            "operatingSystem": "Chrome",
+            "softwareVersion": "0.5.0",
+            "author": { "@type": "Person", "name": "hsr", "url": "https://hsr.gg" },
+            "sameAs": [
+              "https://chromewebstore.google.com/detail/classic-view-for-google-i/ncljfdlnfncafnmcfbdkobjdpfiodfcg",
+              "https://github.com/hsr88/classic-view-for-google-images"
+            ],
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+              "Old Google Images layout with classic horizontal rows",
+              "Hover image zoom",
+              "Direct View Image button",
+              "Quick image size filters",
+              "Related searches controls",
+              "Synchronized layout preferences"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How do I get the old Google Images layout back?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Install Classic View for Google Images from the Chrome Web Store. Open Google Images and the extension restores justified horizontal rows automatically. You can adjust row height, spacing, hover zoom, and clutter controls in the popup."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is there a Chrome extension for the classic Google Images layout?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Classic View is a free Chrome extension that restores the classic Google Images layout with horizontal rows, a View Image button, hover zoom, size filters, and optional related-search hiding."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does Classic View collect my Google Images searches?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Classic View does not collect, store, sell, or transmit search queries, browsing history, IP addresses, or user identifiers. Only layout preferences are saved through Chrome’s built-in storage."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What changed in the new Google Images layout?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Google Images moved to a masonry-style grid that can crop thumbnails unevenly and feel harder to scan on desktop. Classic View puts results back into clean, justified horizontal rows while keeping each image’s natural aspect ratio."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="shell nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Classic View home">
+          <img src="./icon128.png" width="128" height="128" alt="">
+          <span>Classic View</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#faq">FAQ</a>
+          <a href="./old-google-images-layout.html">Guides</a>
+          <a class="nav-install" href="https://chromewebstore.google.com/detail/classic-view-for-google-i/ncljfdlnfncafnmcfbdkobjdpfiodfcg" target="_blank" rel="noopener noreferrer">Add to Chrome</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker">Free Chrome extension</p>
+          <h1 id="hero-title">Restore the old Google Images layout.</h1>
+          <p class="hero-lede">Replace the modern masonry grid with classic horizontal rows. Preview images on hover, open the original directly, filter by size, and remove the clutter — free Chrome extension.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://chromewebstore.google.com/detail/classic-view-for-google-i/ncljfdlnfncafnmcfbdkobjdpfiodfcg" target="_blank" rel="noopener noreferrer">Add to Chrome. It’s free.</a>
+            <a class="button button-support" href="https://ko-fi.com/hsr" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
+          </div>
+          <div class="trust-row">
+            <a href="https://chromewebstore.google.com/detail/classic-view-for-google-i/ncljfdlnfncafnmcfbdkobjdpfiodfcg" target="_blank" rel="noopener noreferrer" aria-label="Open the official Chrome Web Store listing">
+              <img src="./chrome-web-store-badge.png" width="496" height="150" alt="Available in the Chrome Web Store">
+            </a>
+            <span>No tracking</span>
+            <span>No ads</span>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="showcase shell" aria-label="Classic View extension screenshots">
+        <div class="hero-carousel" data-carousel aria-roledescription="carousel" aria-label="Classic View extension features">
+          <div class="carousel-viewport" data-carousel-viewport tabindex="0">
+            <div class="carousel-track" data-carousel-track>
+              <figure class="carousel-slide" data-carousel-slide>
+                <img src="./hero-classic-layout.png" width="1280" height="800" alt="Classic Google Images layout with justified horizontal rows and size filters" fetchpriority="high">
+              </figure>
+              <figure class="carousel-slide" data-carousel-slide aria-hidden="true">
+                <img src="./hero-layout-controls.png" width="1280" height="800" alt="Controls for adjusting Google Images row height, spacing, and visible features" loading="lazy">
+              </figure>
+              <figure class="carousel-slide" data-carousel-slide aria-hidden="true">
+                <img src="./hero-hover-zoom.png" width="1280" height="800" alt="Hover image zoom and direct View Image button in Google Images" loading="lazy">
+              </figure>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <div class="carousel-dots" aria-label="Choose a feature">
+              <button type="button" data-carousel-dot="0" aria-label="Show classic layout" aria-current="true"></button>
+              <button type="button" data-carousel-dot="1" aria-label="Show layout controls" aria-current="false"></button>
+              <button type="button" data-carousel-dot="2" aria-label="Show hover zoom" aria-current="false"></button>
+            </div>
+            <div class="carousel-arrows">
+              <button type="button" data-carousel-prev aria-label="Previous feature">←</button>
+              <button type="button" data-carousel-next aria-label="Next feature">→</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="Extension highlights">
+        <div class="shell proof-grid">
+          <p><strong>Old layout, restored.</strong><span>Justified horizontal rows that are easier to scan.</span></p>
+          <p><strong>Built for desktop search.</strong><span>More useful images on screen, with fewer distractions.</span></p>
+          <p><strong>Private by default.</strong><span>Your searches and browsing history never leave your browser.</span></p>
+        </div>
+      </section>
+
+      <section class="section shell" id="features" aria-labelledby="features-title">
+        <div class="section-intro">
+          <p class="kicker">A better way to browse</p>
+          <h2 id="features-title">Everything people miss about the old Google Images layout.</h2>
+          <p>Classic View changes how results are presented without replacing Google Search or sending your searches anywhere else.</p>
+        </div>
+        <div class="feature-grid">
+          <article><span>01</span><h3>Classic horizontal rows</h3><p>Replace the uneven masonry grid with aligned, justified rows. Images keep their natural aspect ratios without awkward vertical cropping.</p></article>
+          <article><span>02</span><h3>Hover image zoom</h3><p>Move your cursor over a thumbnail to see a larger preview. Smart positioning keeps the preview inside the viewport.</p></article>
+          <article><span>03</span><h3>Direct View Image button</h3><p>Open the original image in a new tab directly from the result. No extra preview panel and no unnecessary detour.</p></article>
+          <article><span>04</span><h3>Quick size filters</h3><p>Switch between All sizes, Large, Medium, and Icon from a compact bar positioned above the image results.</p></article>
+          <article><span>05</span><h3>Less related-search clutter</h3><p>Hide related searches blocks and carousels when you want the page to focus on the images you searched for.</p></article>
+          <article><span>06</span><h3>A layout that fits you</h3><p>Adjust row height and spacing, then enable only the features you need. Changes apply instantly and sync through Chrome.</p></article>
+        </div>
+      </section>
+
+      <section class="demo-section" id="demo" aria-labelledby="demo-title">
+        <div class="shell demo-grid">
+          <div class="section-intro demo-copy">
+            <p class="kicker">See it in action</p>
+            <h2 id="demo-title">From modern grid to classic Google Images in seconds.</h2>
+            <p>Watch the short walkthrough to see the horizontal row layout, image previews, size filters, and customization controls.</p>
+          </div>
+          <div class="video-frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/mzUMqizpvDU" title="How to use Classic View for Google Images" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="privacy-section shell" aria-labelledby="privacy-title">
+        <div>
+          <p class="kicker">Private by design</p>
+          <h2 id="privacy-title">Your image searches stay yours.</h2>
+        </div>
+        <div>
+          <p>Classic View does not collect, store, sell, or transmit personal data, search queries, browsing history, IP addresses, or user identifiers. Only your layout preferences are saved through Chrome’s built-in storage.</p>
+          <a class="text-link" href="./privacy.html">Read the privacy policy →</a>
+        </div>
+      </section>
+
+      <section class="section shell" id="faq" aria-labelledby="faq-title">
+        <div class="section-intro">
+          <p class="kicker">FAQ</p>
+          <h2 id="faq-title">Old Google Images layout questions.</h2>
+          <p>Short answers for people searching for the classic layout, an old Google Images extension, or a cleaner desktop grid.</p>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>How do I get the old Google Images layout back?</summary>
+            <p>Install <a href="https://chromewebstore.google.com/detail/classic-view-for-google-i/ncljfdlnfncafnmcfbdkobjdpfiodfcg" target="_blank" rel="noopener noreferrer">Classic View for Google Images</a> from the Chrome Web Store. Open Google Images and the extension restores justified horizontal rows automatically. Adjust row height, spacing, hover zoom, and clutter controls in the popup.</p>
+          </details>
+          <details>
+            <summary>Is there a Chrome extension for classic Google Images?</summary>
+            <p>Yes. Classic View is a free Chrome extension for the classic Google Images layout: horizontal rows, View Image, hover zoom, size filters, and optional related-search hiding. See the <a href="./chrome-extension.html">Chrome extension guide</a>.</p>
+          </details>
+          <details>
+            <summary>What changed in the new Google Images layout?</summary>
+            <p>Google Images moved to a masonry-style grid that can crop thumbnails unevenly and feel harder to scan on a wide monitor. Classic View puts results back into clean horizontal rows. More detail in <a href="./old-google-images-layout.html">how to restore the old layout</a>.</p>
+          </details>
+          <details>
+            <summary>Does Classic View collect my searches?</summary>
+            <p>No. It does not collect search queries, browsing history, IP addresses, or identifiers. Only layout preferences sync through Chrome storage. Read the <a href="./privacy.html">privacy policy</a>.</p>
+          </details>
+        </div>
+        <div class="related-guides">
+          <a href="./old-google-images-layout.html">Old Google Images layout →</a>
+          <a href="./classic-google-images.html">Classic Google Images →</a>
+          <a href="./chrome-extension.html">Chrome extension install →</a>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <div class="shell final-cta-inner">
+          <div><p class="kicker">Free. Lightweight. Focused.</p><h2>Make Google Images useful again.</h2></div>
+          <div class="hero-actions"><a class="button button-primary" href="https://chromewebstore.google.com/detail/classic-view-for-google-i/ncljfdlnfncafnmcfbdkobjdpfiodfcg" target="_blank" rel="noopener noreferrer">Add to Chrome</a><a class="button button-support" href="https://ko-fi.com/hsr" target="_blank" rel="noopener noreferrer">Support the project</a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer shell">
+      <p>Classic View for Google Images™ is an independent extension and is not affiliated with or endorsed by Google LLC. Google Images™ is a trademark of Google LLC.</p>
+      <div>
+        <a href="./old-google-images-layout.html">Old layout</a>
+        <a href="./classic-google-images.html">Classic Images</a>
+        <a href="./chrome-extension.html">Extension</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="https://github.com/hsr88/classic-view-for-google-images/issues" target="_blank" rel="noopener noreferrer">Support</a>
+        <a href="https://ko-fi.com/hsr" target="_blank" rel="noopener noreferrer">Ko-fi</a>
+      </div>
+    </footer>
+    <script src="./carousel.js" defer></script>
+  </body>
+</html>

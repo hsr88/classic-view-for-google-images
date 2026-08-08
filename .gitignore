@@ -9,16 +9,3 @@ scratch/
 popup.preview.html
 design.md
 ChatGPT Image *.png
-
-# Landing page is maintained outside the extension repository
-build-site.mjs
-carousel.js
-classic-view-bridges.png
-index.html
-landing.css
-netlify.toml
-premium.css
-privacy.html
-robots.txt
-sitemap.xml
-tokens.css
