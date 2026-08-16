@@ -51,6 +51,8 @@ It is free, small, and does not collect browsing data.
 - Adds a direct "View Image" button
 - Adds quick filters for large, medium, and icon-sized images
 - Hides related-search blocks and carousels
+- Marks image tiles using Google labels plus local signals from result text, source domains, metadata, filenames, and AI-specific searches
+- Can hide the detected AI-generated image tiles from the results
 - Applies changes immediately without reloading the page
 - Syncs preferences through `chrome.storage.sync`
 - Supports Google country domains across Europe, the Americas, Asia, and Oceania
@@ -61,6 +63,8 @@ It is free, small, and does not collect browsing data.
 </p>
 
 Every feature can be switched off separately. The main toggle returns Google Images to its original state without requiring a refresh.
+
+AI detection is deterministic and runs locally. Classic View checks labels, result text, source domains, filenames, available metadata, and AI-specific search queries. It does not analyze image pixels, contact an AI service, or guarantee that every badge is correct.
 
 ## Install
 

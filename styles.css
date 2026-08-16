@@ -63,7 +63,7 @@ html.ogi-on .ogi-grid::after {
 
 /* First level of tile children (link / wrapper) at full height —
    except our own UI (the View image button sizes to its content). */
-html.ogi-on .ogi-item > *:not(.ogi-viewbtn) {
+html.ogi-on .ogi-item > *:not(.ogi-viewbtn):not(.ogi-ai-badge) {
   display: block !important;
   width: 100% !important;
   height: 100% !important;
@@ -116,6 +116,60 @@ html.ogi-on .ogi-viewbtn:hover {
 html.ogi-on .ogi-viewbtn:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 1px;
+}
+
+/* --- AI badge (Google-labeled results only) --------------------------- */
+
+html.ogi-on .ogi-item > .ogi-ai-badge {
+  position: absolute !important;
+  top: 6px !important;
+  left: 6px !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 2147483000 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  box-sizing: border-box !important;
+  width: max-content !important;
+  height: max-content !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 3px 7px !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  background: rgba(7, 20, 38, 0.88) !important;
+  color: #fff !important;
+  font: 700 10px/1 Google Sans, Roboto, system-ui, sans-serif !important;
+  letter-spacing: 0.04em !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  flex: 0 0 auto !important;
+  transform: none !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35) !important;
+}
+
+html.ogi-on .ogi-item > .ogi-ai-badge svg {
+  display: block !important;
+  width: 11px !important;
+  height: 11px !important;
+  flex: 0 0 11px !important;
+}
+
+html.ogi-on .ogi-item > .ogi-ai-badge span {
+  display: inline !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+html.ogi-on .ogi-item.ogi-ai-hidden {
+  display: none !important;
 }
 
 /* Hide related searches elements when active */

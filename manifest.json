@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Classic View for Google Images™",
-  "version": "0.5.0",
-  "description": "Restores the classic horizontal grid layout in Google Images, brings back the View Image button, hover zoom, and hides clutter.",
+  "version": "0.5.3",
+  "description": "Restore classic Google Images rows with hover zoom, View Image, size filters, AI image controls, and less clutter.",
   "permissions": ["storage", "activeTab"],
   "icons": {
     "16": "icon16.png",

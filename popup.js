@@ -3,7 +3,7 @@
 (() => {
   "use strict";
 
-  const DEFAULTS = { enabled: true, rowH: 180, gap: 6, zoom: true, viewBtn: true, filters: true, hideRelated: true };
+  const DEFAULTS = { enabled: true, rowH: 180, gap: 6, zoom: true, viewBtn: true, filters: true, hideRelated: true, aiBadge: true, hideAi: false };
 
   const body = document.body;
   const status = document.getElementById("status");
@@ -14,6 +14,8 @@
   const viewBtn = document.getElementById("viewBtn");
   const filters = document.getElementById("filters");
   const hideRelated = document.getElementById("hideRelated");
+  const aiBadge = document.getElementById("aiBadge");
+  const hideAi = document.getElementById("hideAi");
   const rowHVal = document.getElementById("rowHVal");
   const gapVal = document.getElementById("gapVal");
   const reportIssue = document.getElementById("reportIssue");
@@ -21,7 +23,7 @@
   const manifestVersion =
     typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.getManifest
       ? chrome.runtime.getManifest().version
-      : "0.5.0";
+      : "0.5.3";
 
   // The popup also renders as a plain page (file://) for design previews —
   // without the storage API it just shows defaults and stays interactive.
@@ -42,6 +44,8 @@
     viewBtn.checked = data.viewBtn;
     filters.checked = data.filters;
     if (hideRelated) hideRelated.checked = data.hideRelated;
+    if (aiBadge) aiBadge.checked = data.aiBadge !== false;
+    if (hideAi) hideAi.checked = !!data.hideAi;
     rowH.value = data.rowH;
     gap.value = data.gap;
     rowHVal.textContent = `${data.rowH} px`;
@@ -92,6 +96,8 @@
   viewBtn.addEventListener("change", () => save({ viewBtn: viewBtn.checked }));
   filters.addEventListener("change", () => save({ filters: filters.checked }));
   if (hideRelated) hideRelated.addEventListener("change", () => save({ hideRelated: hideRelated.checked }));
+  if (aiBadge) aiBadge.addEventListener("change", () => save({ aiBadge: aiBadge.checked }));
+  if (hideAi) hideAi.addEventListener("change", () => save({ hideAi: hideAi.checked }));
 
   rowH.addEventListener("input", () => {
     rowHVal.textContent = `${rowH.value} px`;

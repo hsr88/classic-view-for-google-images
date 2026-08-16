@@ -1,4 +1,5 @@
 dist/
+local-builds/
 *.zip
 .tmp-*
 .DS_Store
@@ -28,3 +29,6 @@ privacy.html
 robots.txt
 sitemap.xml
 tokens.css
+
+tmp/
+
