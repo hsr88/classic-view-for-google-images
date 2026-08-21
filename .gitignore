@@ -10,25 +10,7 @@ scratch/
 popup.preview.html
 design.md
 ChatGPT Image *.png
-
-# Landing page is deployed manually via Netlify, not from this repo
-build-site.mjs
-carousel.js
-chrome-extension.html
-classic-google-images.html
-classic-view-bridges.png
-hero-classic-layout.png
-hero-hover-zoom.png
-hero-layout-controls.png
-index.html
-landing.css
-netlify.toml
-old-google-images-layout.html
-premium.css
-privacy.html
-robots.txt
-sitemap.xml
-tokens.css
-
 tmp/
 
+# Landing page lives in /landing and is deployed manually (Vercel)
+landing/

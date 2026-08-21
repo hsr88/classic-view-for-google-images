@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="https://images.hsr.gg/">Website</a>
+  <a href="https://classicview.cc/">Website</a>
   &middot;
   <a href="https://youtu.be/mzUMqizpvDU">Watch the demo</a>
   &middot;
@@ -25,13 +25,13 @@
 </p>
 
 <p align="center">
-  <img src="https://images.hsr.gg/hero-classic-layout.png" width="800" alt="Classic Google Images layout with justified horizontal rows">
+  <img src="https://classicview.cc/hero-classic-layout.png" width="800" alt="Classic Google Images layout with justified horizontal rows">
 </p>
 
 <p align="center">
-  <img src="https://images.hsr.gg/hero-layout-controls.png" width="390" alt="Layout controls for row height, spacing, and features">
+  <img src="https://classicview.cc/hero-layout-controls.png" width="390" alt="Layout controls for row height, spacing, and features">
   &nbsp;
-  <img src="https://images.hsr.gg/hero-hover-zoom.png" width="390" alt="Hover zoom and View Image button on Google Images">
+  <img src="https://classicview.cc/hero-hover-zoom.png" width="390" alt="Hover zoom and View Image button on Google Images">
 </p>
 
 ## Why this exists
