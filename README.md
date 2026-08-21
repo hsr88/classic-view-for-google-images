@@ -68,7 +68,7 @@ AI detection is deterministic and runs locally. Classic View checks labels, resu
 
 ## What users say
 
-Chrome Web Store rating: **5.0 / 5** (6 ratings).
+Chrome Web Store rating: **5.0 / 5** — ratings on the Chrome Web Store.
 
 > I missed the old horizontal layout and the direct View Image button. This extension fixed Google Images completely for me. Hover zoom works smoothly, pages load fast, and no more messy staggered grids.
 >
