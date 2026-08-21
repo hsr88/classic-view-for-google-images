@@ -66,6 +66,24 @@ Every feature can be switched off separately. The main toggle returns Google Ima
 
 AI detection is deterministic and runs locally. Classic View checks labels, result text, source domains, filenames, available metadata, and AI-specific search queries. It does not analyze image pixels, contact an AI service, or guarantee that every badge is correct.
 
+## What users say
+
+Chrome Web Store rating: **5.0 / 5** (6 ratings).
+
+> I missed the old horizontal layout and the direct View Image button. This extension fixed Google Images completely for me. Hover zoom works smoothly, pages load fast, and no more messy staggered grids.
+>
+> — **Ferdous Islam**
+
+> This extension is a total game-changer! It perfectly restores the classic Google Images layout… The hover zoom preview and the return of the View Image button are fantastic touches.
+>
+> — **Halima Rahman**
+
+> Exactly what I was looking for. It brings back the old Google Images layout, the hover zoom works smoothly, and the View Image button is incredibly useful.
+>
+> — **Liran Blumenberg**
+
+[Read more reviews on the Chrome Web Store](https://chromewebstore.google.com/detail/classic-view-for-google-i/ncljfdlnfncafnmcfbdkobjdpfiodfcg/reviews)
+
 ## Install
 
 ### Chrome Web Store
